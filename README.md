@@ -46,7 +46,7 @@ return [
         'components' => [
             'mailer' => function() {
                 // Get the stored email settings
-                $settings = Craft::$app->systemSettings->getEmailSettings();
+                $settings = craft\helpers\App::mailSettings();
 
                 // Override the transport adapter to Log
                 $settings->transportType = \burnthebook\logmail\LogAdapter::class;
