@@ -36,17 +36,27 @@ use craft\helpers\MailerHelper;
 use burnthebook\logmail\LogAdapter;
 
 return [
-    'components' => [
-        'mailer' => function() {
-            // Get the stored email settings
-            $settings = Craft::$app->systemSettings->getEmailSettings();
+    '*' => [
+        'components' => [
+            // Live mailer settings if overriden
+            // ...
+        ]
+    ],
+    'dev' => [
+        'components' => [
+            'mailer' => function() {
+                // Get the stored email settings
+                $settings = Craft::$app->systemSettings->getEmailSettings();
 
-            // Override the transport adapter to Log
-            $settings->transportType = LogAdapter::class;
-            $settings->transportSettings = [];
+                // Override the transport adapter to Log
+                $settings->transportType = \burnthebook\logmail\LogAdapter::class;
+                // use default settings from plugin (storage/logs/mail.log)
+                $settings->transportSettings = [];
 
-            return MailerHelper::createMailer($settings);
-        },
+                $config = craft\helpers\App::mailerConfig($settings);
+                return Craft::createObject($config);
+            }
+        ]
     ],
 ];
 ```
