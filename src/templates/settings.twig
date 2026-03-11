@@ -1,0 +1,10 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.textField({
+  first: true,
+  label: "Log File"|t('log-mail-adapter'),
+  instructions: "Where to write logged emails."|t('log-mail-adapter'),
+  name: 'logFile',
+  value: adapter.logFile,
+  required: true,
+}) }}

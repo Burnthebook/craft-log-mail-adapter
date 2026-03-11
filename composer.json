@@ -1,0 +1,50 @@
+{
+    "name": "burnthebook/craft-log-mail-adapter",
+    "description": "Log mail transport adapter for Craft CMS",
+    "type": "craft-plugin",
+    "keywords": [
+        "cms",
+        "craftcms",
+        "mailer",
+        "log",
+        "mail"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Burton",
+            "homepage": "https://github.com/Burnthebook",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "support@burnthebook.co.uk",
+        "issues": "https://github.com/burnthebook/craft-log-mail-adapter/issues?state=open",
+        "source": "https://github.com/burnthebook/craft-log-mail-adapter",
+        "docs": "https://github.com/burnthebook/craft-log-mail-adapter",
+        "rss": "https://github.com/burnthebook/craft-log-mail-adapter/releases.atom"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.2",
+        "craftcms/cms": "^5.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "burnthebook\\logmail\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Log Mail Adapter",
+        "handle": "log-mail-adapter",
+        "documentationUrl": "https://github.com/burnthebook/craft-log-mail-adapter",
+        "class": "burnthebook\\logmail\\LogMail"
+    },
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
+    }
+}
