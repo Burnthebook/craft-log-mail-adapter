@@ -93,7 +93,7 @@ class LogTransport extends AbstractTransport
                 'bcc' => $this->formatAddresses($message->getBcc()),
                 'textBody' => $message->getTextBody(),
                 'htmlBody' => $message->getHtmlBody(),
-                'headers' => (string)$message->getHeaders(),
+                'headers' => $message->getHeaders()->toString(),
             ];
         }
 
